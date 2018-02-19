@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="62f93daa-3db6-4d98-bdb3-84bc372a4565" name="gameserver" url="http://85.214.239.236">
+        <fileTransfer host="85.214.239.236" port="22" rootFolder="/var/www/schatzsuche" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
