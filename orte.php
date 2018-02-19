@@ -1,12 +1,4 @@
 <?php
-$ort   = ['output => Markplatz',
-          'output => Schmiede',
-          'output => Kirche',
-          'output => Rathaus',
-          'output => Wirtshaus',
-          'output => Burgtor',
-          'output => Eigenes Haus',
-          'output => Schatz gefunden'];
 
 $tipp  = ['output => Geh nach Norden',
           'output => Geh nach Osten',
@@ -15,22 +7,35 @@ $tipp  = ['output => Geh nach Norden',
 
 $starttext = ['output => Du Findest eine Notiz auf dem Boden....',
               'output => Ein verdeckt gekleiderter man rempelt dich an und laesst Notiz fallen...',
-              'output => Dein Vater gibt Erzaehlt dir von einem Schatz...'];
+            'output => Dein Vater gibt Erzaehlt dir von einem Schatz...'];
 
-$zufallort = array_rand($ort,1);
-$ausgabeort = $ort[$zufallort];
+$richtung = $_POST["richtung"];
+if ($richtung == 1) {
+    $ort   = ['Ort => Markplatz(
+            "Beschreibung => Toll"',
+        'output => Schmiede',
+        'output => Kirche',
+        'output => Rathaus',
+        'output => Wirtshaus',
+        'output => Burgtor',
+        'output => Eigenes Haus',
+        'output => Schatz gefunden'
+];
+    $zufall = array_rand($ort,1);
+    $response = $ort[$zufall];
+}
+//if ($input == 2) {
+//    $zufalltipp = array_rand($tipp, 1);
+//    $response = $tipp[$zufalltipp];
+//}
+//if ($input == 0) {
+//    $zufallstart = array_rand($starttext, 1);
+//    $response = $starttext[$zufallstart];
+//}
 
-$zufalltipp = array_rand($tipp,1);
-$ausgabetipp = $tipp[$zufalltipp];
-
-$zufallstart = array_rand($starttext,1);
-$ausgabestart =$starttext[$zufallstart];
+$json = json_encode($response);
+echo $json;
 
 
-$ausgabeort = json_encode($ausgabeort);
-$zufalltipp = json_encode($zufalltipp);
-$ausgabestart = json_encode($ausgabestart);
 
-//$ausgaberichtung = utf8_encode($ausgaberichtung);
-//$zufalltipp =utf8_encode($zufalltipp);
-//$ausgabestart = utf8_encode($ausgabestart);
+
