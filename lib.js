@@ -1,5 +1,5 @@
-function richtung(richtung){
-    $.post('orte.php',{"richtung":richtung},function (data){
+function  callRichtung(input){
+    $.get('orte.php',{"input":input},function (data){
         var response = JSON.parse(data);
-        $('#text').html(response);
+        console.log(response);
     })}
